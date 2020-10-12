@@ -1,0 +1,53 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using System.Text;
+using System.Windows.Input;
+using Discord.Commands;
+using NLog;
+using SmileBot.Core.Services;
+
+namespace SmileBot.Modules
+{
+    public abstract class SmileHighLevelModule : ModuleBase
+    {
+        protected Logger _log { get; }
+
+        public string ModuleTypeName { get; }
+        public string LowerModuleTypeName { get; }
+
+        public CommandHandler CmdHandler { get; set; }
+        public string Prefix => ".";
+        protected ICommandContext ctx => Context;
+
+        protected SmileHighLevelModule(bool isTopLevelModule = true)
+        {
+            ModuleTypeName = isTopLevelModule ? this.GetType().Name : this.GetType().DeclaringType.Name;
+            LowerModuleTypeName = ModuleTypeName.ToLowerInvariant();
+            _log = LogManager.GetCurrentClassLogger();
+        }
+    }
+
+    public abstract class SmileHighLevelModule<TService> : SmileHighLevelModule where TService : ISmileService
+    {
+        public TService _service { get; set; }
+
+        protected SmileHighLevelModule(bool isTopLevel = true) : base(isTopLevel)
+        {
+        }
+    }
+
+    public abstract class SmileSubmodule : SmileHighLevelModule
+    {
+        protected SmileSubmodule() : base(false)
+        {
+        }
+    }
+
+    public abstract class SmileSubmodule<TService> : SmileHighLevelModule<TService> where TService : ISmileService
+    {
+        protected SmileSubmodule() : base(false)
+        {
+        }
+    }
+}

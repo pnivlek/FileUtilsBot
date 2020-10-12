@@ -1,0 +1,9 @@
+﻿{
+  "eightball": {
+    "Cmd": "8ball 8b",
+    "Desc": "Ask a question to the famous eight ball.",
+    "Usage": [
+      "{0}8b Do you like Ping Pong the Animation?"
+    ]
+  }
+}

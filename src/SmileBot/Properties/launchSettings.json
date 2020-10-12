@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SmileBot": {
+      "commandName": "Project",
+      "workingDirectory": "Z:\\Code\\SmileBot\\src\\SmileBot"
+    }
+  }
+}
