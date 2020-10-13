@@ -13,7 +13,7 @@ namespace SmileBot.Core.Services
 
     public class DbConfig
     {
-        public DbConfig (string type, string connString)
+        public DbConfig(string type, string connString)
         {
             this.Type = type;
             this.ConnectionString = connString;

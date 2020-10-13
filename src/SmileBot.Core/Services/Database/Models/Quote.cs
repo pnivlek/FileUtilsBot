@@ -9,17 +9,17 @@ namespace SmileBot.Core.Services.Database.Models
         public string Author { get; set; }
         public string Text { get; set; }
 
-        public override bool Equals (object obj)
+        public override bool Equals(object obj)
         {
             return obj is Quote q ?
-                q.Text.Equals (Text) &&
+                q.Text.Equals(Text) &&
                 q.AuthorId == AuthorId &&
                 q.GuildId == GuildId :
                 false;
         }
 
-        public override int GetHashCode () => (Text + AuthorId.ToString () + GuildId.ToString ()).GetHashCode ();
+        public override int GetHashCode() => (Text + AuthorId.ToString() + GuildId.ToString()).GetHashCode();
 
-        public override string ToString () => Text;
+        public override string ToString() => Text;
     }
 }

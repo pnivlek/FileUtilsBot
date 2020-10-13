@@ -18,22 +18,22 @@ namespace SmileBot.Modules.Util
             private readonly DbService _db;
             private readonly DiscordSocketClient _client;
 
-            public QuoteCommands (DbService db, DiscordSocketClient client)
+            public QuoteCommands(DbService db, DiscordSocketClient client)
             {
                 _db = db;
                 _client = client;
             }
 
             [SmileCommand, Usage, Description, Aliases]
-            [RequireContext (ContextType.Guild)]
-            public async Task QuoteAdd (string keyword, [Leftover] string quote)
+            [RequireContext(ContextType.Guild)]
+            public async Task QuoteAdd(string keyword, [Leftover] string quote)
             {
-                if (string.IsNullOrWhiteSpace (keyword) || string.IsNullOrWhiteSpace (quote))
+                if (string.IsNullOrWhiteSpace(keyword) || string.IsNullOrWhiteSpace(quote))
                     return;
 
-                using (var uow = _db.GetDbContext ())
+                using(var uow = _db.GetDbContext())
                 {
-                    uow.Quotes.Add (new Quote
+                    uow.Quotes.Add(new Quote
                     {
                         GuildId = ctx.Guild.Id,
                             Keyword = keyword,
@@ -41,85 +41,85 @@ namespace SmileBot.Modules.Util
                             Author = ctx.Message.Author.Username,
                             Text = quote
                     });
-                    uow.SaveChanges ();
+                    uow.SaveChanges();
                 }
 
-                await ctx.Message.Channel.SendMessageAsync ("Quote added.");
+                await ctx.Message.Channel.SendMessageAsync("Quote added.");
             }
 
             [SmileCommand, Usage, Description, Aliases]
-            [RequireContext (ContextType.Guild)]
-            public async Task QuoteDelete (int id)
+            [RequireContext(ContextType.Guild)]
+            public async Task QuoteDelete(int id)
             {
-                using (var uow = _db.GetDbContext ())
+                using(var uow = _db.GetDbContext())
                 {
-                    Quote quote = uow.Quotes.GetById (id);
-                    if (await SendQuote (ctx, quote))
+                    Quote quote = uow.Quotes.GetById(id);
+                    if (await SendQuote(ctx, quote))
                     {
                         {
-                            uow.Quotes.Remove (id);
-                            uow.SaveChanges ();
+                            uow.Quotes.Remove(id);
+                            uow.SaveChanges();
                         }
-                        await ReplyAsync ("Quote removed.");
+                        await ReplyAsync("Quote removed.");
                     }
                 }
             }
 
             [SmileCommand, Usage, Description, Aliases]
-            [RequireContext (ContextType.Guild)]
-            public async Task QuoteGet (int id)
+            [RequireContext(ContextType.Guild)]
+            public async Task QuoteGet(int id)
             {
-                using (var uow = _db.GetDbContext ())
+                using(var uow = _db.GetDbContext())
                 {
-                    Quote quote = uow.Quotes.GetById (id);
-                    await SendQuote (ctx, quote);
+                    Quote quote = uow.Quotes.GetById(id);
+                    await SendQuote(ctx, quote);
                 }
             }
 
             [SmileCommand, Usage, Description, Aliases]
-            [RequireContext (ContextType.Guild)]
-            [Priority (0)]
-            public async Task QuoteGetRandom ()
+            [RequireContext(ContextType.Guild)]
+            [Priority(0)]
+            public async Task QuoteGetRandom()
             {
-                using (var uow = _db.GetDbContext ())
+                using(var uow = _db.GetDbContext())
                 {
-                    Quote quote = await uow.Quotes.GetRandomFromGuild (ctx.Guild.Id);
-                    await SendQuote (ctx, quote);
+                    Quote quote = await uow.Quotes.GetRandomFromGuild(ctx.Guild.Id);
+                    await SendQuote(ctx, quote);
                 }
             }
 
             [SmileCommand, Usage, Description, Aliases]
-            [RequireContext (ContextType.Guild)]
-            [Priority (1)]
-            public async Task QuoteGetRandom (string keyword)
+            [RequireContext(ContextType.Guild)]
+            [Priority(1)]
+            public async Task QuoteGetRandom(string keyword)
             {
-                using (var uow = _db.GetDbContext ())
+                using(var uow = _db.GetDbContext())
                 {
-                    Quote quote = await uow.Quotes.GetRandomFromGuildByKeyword (ctx.Guild.Id, keyword);
-                    await SendQuote (ctx, quote);
+                    Quote quote = await uow.Quotes.GetRandomFromGuildByKeyword(ctx.Guild.Id, keyword);
+                    await SendQuote(ctx, quote);
                 }
             }
 
-            private async Task<bool> SendQuote (ICommandContext ctx, Quote quote)
+            private async Task<bool> SendQuote(ICommandContext ctx, Quote quote)
             {
                 if (quote?.GuildId != ctx.Guild.Id)
                 {
-                    await ctx.Channel.SendMessageAsync ("Quote not found.");
+                    await ctx.Channel.SendMessageAsync("Quote not found.");
                     return false;
                 }
                 else
                 {
-                    var embed = new EmbedBuilder ()
-                        .WithFooter (
-                            new EmbedFooterBuilder ()
-                            .WithText ("Added by " + quote.Author))
-                        .WithFields (
-                            new EmbedFieldBuilder ()
-                            .WithName ("Quote")
-                            .WithValue (quote.Text))
-                        .WithTimestamp (
-                            new DateTimeOffset ((quote.DateCreated ?? DateTime.Now).ToLocalTime ()));
-                    await ctx.Channel.SendMessageAsync (embed: embed.Build ());
+                    var embed = new EmbedBuilder()
+                        .WithFooter(
+                            new EmbedFooterBuilder()
+                            .WithText("Added by " + quote.Author))
+                        .WithFields(
+                            new EmbedFieldBuilder()
+                            .WithName("Quote")
+                            .WithValue(quote.Text))
+                        .WithTimestamp(
+                            new DateTimeOffset((quote.DateCreated ?? DateTime.Now).ToLocalTime()));
+                    await ctx.Channel.SendMessageAsync(embed: embed.Build());
                     return true;
                 }
             }

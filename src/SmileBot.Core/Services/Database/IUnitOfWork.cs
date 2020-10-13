@@ -9,7 +9,7 @@ namespace SmileBot.Core.Services.Database
         IUserRepository Users { get; }
         IGuildRepository Guilds { get; }
         IQuoteRepository Quotes { get; }
-        int SaveChanges ();
-        Task<int> SaveChangesAsync ();
+        int SaveChanges();
+        Task<int> SaveChangesAsync();
     }
 }

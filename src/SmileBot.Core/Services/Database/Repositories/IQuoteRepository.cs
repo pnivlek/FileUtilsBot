@@ -5,7 +5,7 @@ namespace SmileBot.Core.Services.Database.Repositories
 {
     public interface IQuoteRepository : IRepository<Quote>
     {
-        Task<Quote> GetRandomFromGuild (ulong guildId);
-        Task<Quote> GetRandomFromGuildByKeyword (ulong guildId, string keyword);
+        Task<Quote> GetRandomFromGuild(ulong guildId);
+        Task<Quote> GetRandomFromGuildByKeyword(ulong guildId, string keyword);
     }
 }

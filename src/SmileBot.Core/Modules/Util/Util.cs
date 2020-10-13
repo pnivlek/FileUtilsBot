@@ -3,7 +3,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using SmileBot.Common.Attributes;
-using SmileBot.Core._Extensions;
+using SmileBot.Core.Extensions;
 using SmileBot.Core.Services;
 
 namespace SmileBot.Modules.Util
@@ -15,7 +15,7 @@ namespace SmileBot.Modules.Util
         private readonly SmileBot _bot;
         private readonly DbService _db;
 
-        public Util (SmileBot smile, DiscordSocketClient client,
+        public Util(SmileBot smile, DiscordSocketClient client,
             IBotCredentials creds, DbService db)
         {
             _client = client;

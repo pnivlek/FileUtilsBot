@@ -16,11 +16,11 @@ namespace SmileBot.Modules
         public string Prefix => ".";
         protected ICommandContext ctx => Context;
 
-        protected SmileHighLevelModule (bool isTopLevelModule = true)
+        protected SmileHighLevelModule(bool isTopLevelModule = true)
         {
-            ModuleTypeName = isTopLevelModule ? this.GetType ().Name : this.GetType ().DeclaringType.Name;
-            LowerModuleTypeName = ModuleTypeName.ToLowerInvariant ();
-            _log = LogManager.GetCurrentClassLogger ();
+            ModuleTypeName = isTopLevelModule ? this.GetType().Name : this.GetType().DeclaringType.Name;
+            LowerModuleTypeName = ModuleTypeName.ToLowerInvariant();
+            _log = LogManager.GetCurrentClassLogger();
         }
     }
 
@@ -28,16 +28,16 @@ namespace SmileBot.Modules
     {
         public TService _service { get; set; }
 
-        protected SmileHighLevelModule (bool isTopLevel = true) : base (isTopLevel) { }
+        protected SmileHighLevelModule(bool isTopLevel = true) : base(isTopLevel) { }
     }
 
     public abstract class SmileSubmodule : SmileHighLevelModule
     {
-        protected SmileSubmodule () : base (false) { }
+        protected SmileSubmodule() : base(false) { }
     }
 
     public abstract class SmileSubmodule<TService> : SmileHighLevelModule<TService> where TService : ISmileService
     {
-        protected SmileSubmodule () : base (false) { }
+        protected SmileSubmodule() : base(false) { }
     }
 }

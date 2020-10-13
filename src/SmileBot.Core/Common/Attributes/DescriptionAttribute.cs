@@ -5,9 +5,9 @@ using SmileBot.Core.Services.Impl;
 
 namespace SmileBot.Common.Attributes
 {
-    [AttributeUsage (AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method)]
     public class DescriptionAttribute : SummaryAttribute
     {
-        public DescriptionAttribute ([CallerMemberName] string memberName = "") : base (Localization.LoadCommand (memberName.ToLowerInvariant ()).Desc) { }
+        public DescriptionAttribute([CallerMemberName] string memberName = "") : base(Localization.LoadCommand(memberName.ToLowerInvariant()).Desc) { }
     }
 }

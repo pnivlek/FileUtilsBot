@@ -7,16 +7,16 @@ namespace SmileBot.Core.Services.Database.Models
         public string Discriminator { get; set; }
         public string AvatarId { get; set; }
 
-        public override bool Equals (object obj)
+        public override bool Equals(object obj)
         {
             return obj is User u ?
                 u.UserId == UserId :
                 false;
         }
 
-        public override int GetHashCode () => UserId.GetHashCode ();
+        public override int GetHashCode() => UserId.GetHashCode();
 
-        public override string ToString () =>
+        public override string ToString() =>
             Username + "#" + Discriminator;
     }
 }

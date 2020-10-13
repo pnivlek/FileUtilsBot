@@ -5,6 +5,6 @@ namespace SmileBot.Core.Services.Database.Repositories.Impl
 {
     public class GuildRepository : Repository<Guild>, IGuildRepository
     {
-        public GuildRepository (DbContext context) : base (context) { }
+        public GuildRepository(DbContext context) : base(context) { }
     }
 }
