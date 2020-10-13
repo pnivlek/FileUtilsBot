@@ -1,6 +1,4 @@
-﻿namespace SmileBot.Core.Services.Database.Models
+namespace SmileBot.Core.Services.Database.Models
 {
-    public class BotConfig : DbEntity
-    {
-    }
+    public class BotConfig : DbEntity { }
 }

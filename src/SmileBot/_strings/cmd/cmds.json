@@ -5,5 +5,34 @@
     "Usage": [
       "{0}8b Do you like Ping Pong the Animation?"
     ]
+  },
+  "quoteadd": {
+    "Cmd": "qa quoteadd",
+    "Desc": "Adds a quote to the quotes.",
+    "Usage": [
+      "{0}qa \"motivation\" \"Smile: The Hero Comes. The Hero Comes. The Hero Comes.\""
+    ]
+  },
+  "quotedelete": {
+    "Cmd": "qd quotedel",
+    "Desc": "Deletes a quote from the database by id.",
+    "Usage": [
+      "{0}qd 1"
+    ]
+  },
+  "quoteget": {
+    "Cmd": "qg quoteget",
+    "Desc": "Gets a quote from the database by id.",
+    "Usage": [
+      "{0}qg 1"
+    ]
+  },
+  "quotegetrandom": {
+    "Cmd": "q quote",
+    "Desc": "Gets a random quote from the database.",
+    "Usage": [
+      "{0}q",
+      "{0}q keyword"
+    ]
   }
 }

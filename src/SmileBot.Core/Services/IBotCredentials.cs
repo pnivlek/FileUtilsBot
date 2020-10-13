@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +6,6 @@ namespace SmileBot.Core.Services
 {
     public interface IBotCredentials
     {
-        ulong ClientId { get; }
         string Token { get; }
 
         DbConfig Db { get; }
@@ -14,7 +13,7 @@ namespace SmileBot.Core.Services
 
     public class DbConfig
     {
-        public DbConfig(string type, string connString)
+        public DbConfig (string type, string connString)
         {
             this.Type = type;
             this.ConnectionString = connString;

@@ -3,8 +3,8 @@ using SmileBot.Core.Services.Database.Models;
 
 namespace SmileBot.Core.Services.Database.Repositories.Impl
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class GuildRepository : Repository<Guild>, IGuildRepository
     {
-        public UserRepository (DbContext context) : base (context) { }
+        public GuildRepository (DbContext context) : base (context) { }
     }
 }

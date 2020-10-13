@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+using System;
+using System.Threading.Tasks;
+using SmileBot.Core.Services.Database.Repositories;
 namespace SmileBot.Core.Services.Database
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
-        public SmileContext _context { get; }
+        SmileContext _context { get; }
+        IUserRepository Users { get; }
+        IGuildRepository Guilds { get; }
+        IQuoteRepository Quotes { get; }
+        int SaveChanges ();
+        Task<int> SaveChangesAsync ();
     }
 }

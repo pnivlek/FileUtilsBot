@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
+using System;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using SmileBot.Core.Services.Database.Models;
@@ -8,14 +9,14 @@ namespace SmileBot.Core.Services.Database
 {
     public class SmileContextFactory : IDesignTimeDbContextFactory<SmileContext>
     {
-        public SmileContext CreateDbContext(string[] args)
+        public SmileContext CreateDbContext (string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<SmileContext>();
-            IBotCredentials creds = new BotCredentials();
-            var builder = new SqliteConnectionStringBuilder(creds.Db.ConnectionString);
-            optionsBuilder.UseSqlite(builder.ToString());
-            var ctx = new SmileContext(optionsBuilder.Options);
-            ctx.Database.SetCommandTimeout(60);
+            var optionsBuilder = new DbContextOptionsBuilder<SmileContext> ();
+            IBotCredentials creds = new BotCredentials ();
+            var builder = new SqliteConnectionStringBuilder (creds.Db.ConnectionString);
+            optionsBuilder.UseSqlite (builder.ToString ());
+            var ctx = new SmileContext (optionsBuilder.Options);
+            ctx.Database.SetCommandTimeout (60);
             return ctx;
         }
     }
@@ -26,9 +27,8 @@ namespace SmileBot.Core.Services.Database
         public DbSet<Guild> Guilds { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
 
-        public SmileContext(DbContextOptions<SmileContext> options) : base(options)
-        {
-        }
+        public SmileContext (DbContextOptions<SmileContext> options) : base (options) { }
     }
 }
