@@ -1,5 +1,5 @@
-src/SmileBot/credentials.json
-src/SmileBot/data
+src/SmileBot/Config/credentials.json
+*.db
 .vscode/
 
 ## Ignore Visual Studio temporary files, build results, and
