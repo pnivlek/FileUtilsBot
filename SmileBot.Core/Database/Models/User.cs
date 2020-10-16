@@ -1,4 +1,4 @@
-namespace SmileBot.Core.Services.Database.Models
+namespace SmileBot.Core.Database.Models
 {
     public class User : DbEntity
     {

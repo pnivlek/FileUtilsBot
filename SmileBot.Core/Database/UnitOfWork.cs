@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using SmileBot.Core.Services.Database.Repositories;
-using SmileBot.Core.Services.Database.Repositories.Impl;
+using SmileBot.Core.Database.Repositories;
+using SmileBot.Core.Database.Repositories.Impl;
 
-namespace SmileBot.Core.Services.Database
+namespace SmileBot.Core.Database
 {
     public class UnitOfWork : IUnitOfWork
     {

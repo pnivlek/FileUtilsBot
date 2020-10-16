@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using SmileBot.Core.Services.Database.Repositories;
+using SmileBot.Core.Database.Repositories;
 namespace SmileBot.Core.Database
 {
     public interface IUnitOfWork : IDisposable

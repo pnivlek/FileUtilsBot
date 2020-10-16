@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SmileBot.Core.Services.Database.Models;
+using SmileBot.Core.Database.Models;
 
-namespace SmileBot.Core.Services.Database.Repositories.Impl
+namespace SmileBot.Core.Database.Repositories.Impl
 {
     public class GuildConfigRepository : Repository<GuildConfig>, IGuildConfigRepository
     {

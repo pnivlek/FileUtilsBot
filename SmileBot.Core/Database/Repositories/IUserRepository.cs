@@ -1,6 +1,6 @@
-using SmileBot.Core.Services.Database.Models;
+using SmileBot.Core.Database.Models;
 
-namespace SmileBot.Core.Services.Database.Repositories
+namespace SmileBot.Core.Database.Repositories
 {
     public interface IUserRepository : IRepository<User>
     {

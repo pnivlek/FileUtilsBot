@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SmileBot.Core.Services.Database.Models
+namespace SmileBot.Core.Database.Models
 {
     public class GuildConfig : DbEntity
     {

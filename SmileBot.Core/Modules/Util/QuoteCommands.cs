@@ -5,7 +5,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using SmileBot.Common.Attributes;
 using SmileBot.Core.Services;
-using SmileBot.Core.Services.Database.Models;
+using SmileBot.Core.Database.Models;
 
 namespace SmileBot.Modules.Util
 {

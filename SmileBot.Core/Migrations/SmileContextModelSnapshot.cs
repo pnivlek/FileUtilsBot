@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SmileBot.Core.Services.Database;
+using SmileBot.Core.Database;
 
 namespace SmileBot.Core.Migrations
 {
@@ -16,7 +16,7 @@ namespace SmileBot.Core.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.8");
 
-            modelBuilder.Entity("SmileBot.Core.Services.Database.Models.BotConfig", b =>
+            modelBuilder.Entity("SmileBot.Core.Database.Models.BotConfig", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -30,7 +30,7 @@ namespace SmileBot.Core.Migrations
                 b.ToTable("BotConfig");
             });
 
-            modelBuilder.Entity("SmileBot.Core.Services.Database.Models.Guild", b =>
+            modelBuilder.Entity("SmileBot.Core.Database.Models.Guild", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace SmileBot.Core.Migrations
                 b.ToTable("Guilds");
             });
 
-            modelBuilder.Entity("SmileBot.Core.Services.Database.Models.Quote", b =>
+            modelBuilder.Entity("SmileBot.Core.Database.Models.Quote", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace SmileBot.Core.Migrations
                 b.ToTable("Quotes");
             });
 
-            modelBuilder.Entity("SmileBot.Core.Services.Database.Models.User", b =>
+            modelBuilder.Entity("SmileBot.Core.Database.Models.User", b =>
             {
                 b.Property<int>("Id")
                     .ValueGeneratedOnAdd()

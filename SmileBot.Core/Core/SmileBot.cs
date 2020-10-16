@@ -15,7 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using NLog;
 using SmileBot.Core.Extensions;
 using SmileBot.Core.Services;
-using SmileBot.Core.Services.Database.Models;
+using SmileBot.Core.Database.Models;
 using SmileBot.Core.Services.Impl;
 
 namespace SmileBot

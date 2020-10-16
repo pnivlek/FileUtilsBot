@@ -1,7 +1,7 @@
 using System.Linq;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using SmileBot.Core.Services.Database;
+using SmileBot.Core.Database;
 
 namespace SmileBot.Core.Services
 {

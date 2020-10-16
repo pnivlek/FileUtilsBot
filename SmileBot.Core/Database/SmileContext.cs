@@ -2,10 +2,10 @@ using System;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using SmileBot.Core.Services.Database.Models;
+using SmileBot.Core.Database.Models;
 using SmileBot.Core.Services.Impl;
 
-namespace SmileBot.Core.Services.Database
+namespace SmileBot.Core.Database
 {
     public class SmileContextFactory : IDesignTimeDbContextFactory<SmileContext>
     {
