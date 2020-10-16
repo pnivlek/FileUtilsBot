@@ -10,10 +10,10 @@ namespace SmileBot.Core.Services.Database
         public SmileContext _context { get; }
 
         private IUserRepository _userRepository;
-        private IGuildRepository _guildRepository;
+        private IGuildConfigRepository _guildRepository;
         private IQuoteRepository _quoteRepository;
         public IUserRepository Users => _userRepository ?? (_userRepository = new UserRepository(_context));
-        public IGuildRepository Guilds => _guildRepository ?? (_guildRepository = new GuildRepository(_context));
+        public IGuildConfigRepository Guilds => _guildRepository ?? (_guildRepository = new GuildRepository(_context));
         public IQuoteRepository Quotes => _quoteRepository ?? (_quoteRepository = new QuoteRepository(_context));
 
         public UnitOfWork(SmileContext context)

@@ -83,7 +83,7 @@ namespace SmileBot.Modules.Util
             {
                 using(var uow = _db.GetDbContext())
                 {
-                    Quote quote = await uow.Quotes.GetRandomFromGuild(ctx.Guild.Id);
+                    Quote quote = await uow.Quotes.GetRandomQuote(ctx.Guild.Id);
                     await SendQuote(ctx, quote);
                 }
             }
@@ -95,7 +95,7 @@ namespace SmileBot.Modules.Util
             {
                 using(var uow = _db.GetDbContext())
                 {
-                    Quote quote = await uow.Quotes.GetRandomFromGuildByKeyword(ctx.Guild.Id, keyword);
+                    Quote quote = await uow.Quotes.GetRandomQuoteByKeyword(ctx.Guild.Id, keyword);
                     await SendQuote(ctx, quote);
                 }
             }
@@ -115,7 +115,7 @@ namespace SmileBot.Modules.Util
                             .WithText("Added by " + quote.Author))
                         .WithFields(
                             new EmbedFieldBuilder()
-                            .WithName("Quote")
+                            .WithName("Quote " + quote.Id)
                             .WithValue(quote.Text))
                         .WithTimestamp(
                             new DateTimeOffset((quote.DateCreated ?? DateTime.Now).ToLocalTime()));

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmileBot.Core.Services.Database.Models
 {
-    public class Guild : DbEntity
+    public class GuildConfig : DbEntity
     {
         public ulong GuildId { get; set; }
 

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmileBot", "src\SmileBot\SmileBot.csproj", "{AC6114E2-95B6-4AAF-9089-89651A57BF04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmileBot.Core", "src\SmileBot.Core\SmileBot.Core.csproj", "{25332744-0FF3-402D-81A9-89D824D4D6C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmileBot.Core", "SmileBot.Core\SmileBot.Core.csproj", "{25332744-0FF3-402D-81A9-89D824D4D6C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

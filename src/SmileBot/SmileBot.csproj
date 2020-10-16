@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Discord.Net" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SmileBot.Core\SmileBot.Core.csproj" />
+    <ProjectReference Include="..\..\SmileBot.Core\SmileBot.Core.csproj" />
   </ItemGroup>
 
 </Project>

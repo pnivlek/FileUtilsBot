@@ -24,7 +24,7 @@ namespace SmileBot.Core.Services.Database
     public class SmileContext : DbContext
     {
         public DbSet<BotConfig> BotConfig { get; set; }
-        public DbSet<Guild> Guilds { get; set; }
+        public DbSet<GuildConfig> Guilds { get; set; }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Quote> Quotes { get; set; }

@@ -5,9 +5,9 @@ using NLog;
 using NLog.Config;
 using NLog.Targets;
 
-namespace SmileBot.Core.Services
+namespace SmileBot
 {
-    class LogSetup
+    public class LogSetup
     {
         public static void SetupLogger(int shardId)
         {
