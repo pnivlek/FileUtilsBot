@@ -8,7 +8,7 @@ namespace SmileBot.Core.Services.Impl
     public class Localization : ILocalization
     {
         private static readonly Dictionary<string, CommandData> _commandData =
-            JsonConvert.DeserializeObject<Dictionary<string, CommandData>>(File.ReadAllText("./_strings/cmd/cmds.json"));
+            JsonConvert.DeserializeObject<Dictionary<string, CommandData>>(File.ReadAllText("./Data/Commands/commands.json"));
 
         public Localization()
         {

@@ -13,7 +13,7 @@ namespace SmileBot.Core.Services.Impl
 
         public DbConfig Db { get; }
 
-        private readonly string _credsFileName = Path.Combine(Directory.GetCurrentDirectory(), "credentials.json");
+        private readonly string _credsFileName = Path.Combine(Directory.GetCurrentDirectory(), "Config/credentials.json");
 
         public BotCredentials()
         {

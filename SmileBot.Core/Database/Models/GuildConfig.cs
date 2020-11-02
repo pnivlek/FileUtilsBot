@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace SmileBot.Core.Database.Models
 {
     public class GuildConfig : DbEntity
@@ -12,5 +8,7 @@ namespace SmileBot.Core.Database.Models
 
         public bool DeleteMessageOnCommand { get; set; }
         public int DeleteMessageOnCommandTimer { get; set; }
+
+        public ReactionTrackSettings ReactionTrackSettings { get; set; } = new ReactionTrackSettings();
     }
 }

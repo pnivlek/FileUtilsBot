@@ -10,11 +10,13 @@ namespace SmileBot.Core.Database
         public SmileContext _context { get; }
 
         private IUserRepository _userRepository;
-        private IGuildConfigRepository _guildRepository;
+        private IGuildConfigRepository _guildConfigRepository;
         private IQuoteRepository _quoteRepository;
+        private IReactionEventRepository _reactionEventRepository;
         public IUserRepository Users => _userRepository ?? (_userRepository = new UserRepository(_context));
-        public IGuildConfigRepository Guilds => _guildRepository ?? (_guildRepository = new GuildRepository(_context));
+        public IGuildConfigRepository GuildConfigs => _guildConfigRepository ?? (_guildConfigRepository = new GuildConfigRepository(_context));
         public IQuoteRepository Quotes => _quoteRepository ?? (_quoteRepository = new QuoteRepository(_context));
+        public IReactionEventRepository ReactionEvents => _reactionEventRepository ?? (_reactionEventRepository = new ReactionEventRepository(_context));
 
         public UnitOfWork(SmileContext context)
         {

@@ -4,8 +4,8 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using SmileBot.Common.Attributes;
-using SmileBot.Core.Services;
 using SmileBot.Core.Database.Models;
+using SmileBot.Core.Services;
 
 namespace SmileBot.Modules.Util
 {

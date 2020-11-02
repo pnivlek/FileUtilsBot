@@ -1,8 +1,11 @@
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using SmileBot.Core.Database.Models;
+using SmileBot.Core.Services;
 using SmileBot.Core.Services.Impl;
 
 namespace SmileBot.Core.Database
@@ -28,7 +31,19 @@ namespace SmileBot.Core.Database
 
         public DbSet<User> Users { get; set; }
         public DbSet<Quote> Quotes { get; set; }
+        public DbSet<ReactionEvent> ReactionEvents { get; set; }
 
         public SmileContext(DbContextOptions<SmileContext> options) : base(options) { }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder
+                .Entity<ReactionTrackSettings>()
+                .Property(e => e.IgnoredChannels)
+                .HasConversion(
+                    v => String.Join(";", v),
+                    v => v.Split(';', StringSplitOptions.RemoveEmptyEntries).OfType<ulong>().ToList());
+        }
     }
+
 }

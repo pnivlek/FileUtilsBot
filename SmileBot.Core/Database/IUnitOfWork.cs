@@ -7,8 +7,9 @@ namespace SmileBot.Core.Database
     {
         SmileContext _context { get; }
         IUserRepository Users { get; }
-        IGuildConfigRepository Guilds { get; }
+        IGuildConfigRepository GuildConfigs { get; }
         IQuoteRepository Quotes { get; }
+        IReactionEventRepository ReactionEvents { get; }
         int SaveChanges();
         Task<int> SaveChangesAsync();
     }

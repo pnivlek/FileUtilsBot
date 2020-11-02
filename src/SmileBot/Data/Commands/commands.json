@@ -35,5 +35,10 @@
     "Cmd": "q quote",
     "Desc": "Gets a random quote from the database.",
     "Usage": ["{0}q", "{0}q keyword"]
+  },
+  "reactiontracktoggle": {
+    "Cmd": "togglereactiontrack trtk",
+    "Desc": "Toggles whether or not to track reactions.",
+    "Usage": ["{0}trtk"]
   }
 }
