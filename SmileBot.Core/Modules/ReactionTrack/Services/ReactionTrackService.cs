@@ -8,11 +8,12 @@ using Discord.WebSocket;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using SmileBot.Core.Database.Models;
+using SmileBot.Core.Database.Repositories;
 using SmileBot.Core.Services;
 
-namespace SmileBot.Modules.Util.Services
+namespace SmileBot.Modules.ReactionTrack.Services
 {
-    public class ReactionService : ISmileService
+    public class ReactionTrackService : ISmileService
     {
         private readonly Logger _log;
         private readonly CommandHandler _cmd;
@@ -21,7 +22,7 @@ namespace SmileBot.Modules.Util.Services
         private readonly DbService _db;
         private readonly ConcurrentDictionary<ulong, ReactionTrackSettings> _reactionSettingsCache;
 
-        public ReactionService(CommandHandler cmd, SmileBot bot, DiscordSocketClient client, DbService db)
+        public ReactionTrackService(CommandHandler cmd, SmileBot bot, DiscordSocketClient client, DbService db)
         {
             _cmd = cmd;
             _bot = bot;
@@ -75,19 +76,18 @@ namespace SmileBot.Modules.Util.Services
             if (!ValidateReaction(channel))
                 return;
             var guildId = ((SocketGuildChannel)channel).Guild.Id;
-            var guildEmote = _client.GetGuild(guildId).Emotes.FirstOrDefault(x => x.Id == (reaction.Emote as Emote).Id);
-            if (guildEmote == null)
-                return;
+            var emote = reaction.Emote as Emote;
 
             using (var uow = _db.GetDbContext())
             {
                 uow.ReactionEvents.Add(new ReactionEvent
                 {
-                    EmojiId = guildEmote.Id,
-                    EmojiName = guildEmote.Name,
+                    EmoteId = emote.Id,
+                    EmoteName = emote.Name,
                     MessageId = cache.Id,
                     ChannelId = channel.Id,
                     GuildId = guildId,
+                    FromOutsideGuild = !_client.GetGuild(guildId).Emotes.Any(x => x.Id == (reaction.Emote as Emote).Id),
                     ReactorUserId = reaction.UserId,
                 });
                 await uow.SaveChangesAsync();
@@ -101,14 +101,9 @@ namespace SmileBot.Modules.Util.Services
             if (!ValidateReaction(channel))
                 return;
 
-            var guildId = ((SocketGuildChannel)channel).Guild.Id;
-            var guildEmote = _client.GetGuild(guildId).Emotes.FirstOrDefault(x => x.Id == (reaction.Emote as Emote).Id);
-            if (guildEmote == null)
-                return;
-
             using (var uow = _db.GetDbContext())
             {
-                uow.ReactionEvents.RemoveReaction(guildEmote.Id, reaction.UserId, cache.Id);
+                uow.ReactionEvents.RemoveReaction((reaction.Emote as Emote).Id, reaction.UserId, cache.Id);
                 await uow.SaveChangesAsync();
             }
         }
@@ -135,6 +130,15 @@ namespace SmileBot.Modules.Util.Services
                 uow.SaveChanges();
             }
             return enabled;
+        }
+
+        public SingleEmoteStats ReactionTrackGetEmote(Emote emote, ulong guildId)
+        {
+            using (var uow = _db.GetDbContext())
+            {
+                var stats = uow.ReactionEvents.GetSingleEmoteStats(emote.Id, guildId);
+                return stats;
+            }
         }
 
         private bool ValidateReaction(IMessageChannel channel)

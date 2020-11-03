@@ -40,5 +40,10 @@
     "Cmd": "togglereactiontrack trtk",
     "Desc": "Toggles whether or not to track reactions.",
     "Usage": ["{0}trtk"]
+  },
+  "reactiontrackgetemote": {
+    "Cmd": "rtkemote rtke",
+    "Desc": "Gets information about a single custom reaction's usage.",
+    "Usage": ["{0}rtke <emote>"]
   }
 }

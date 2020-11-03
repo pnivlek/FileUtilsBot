@@ -1,3 +1,4 @@
+using Discord;
 using SmileBot.Core.Database.Models;
 
 namespace SmileBot.Core.Database.Repositories
@@ -6,5 +7,25 @@ namespace SmileBot.Core.Database.Repositories
     {
         public void RemoveReaction(ulong guildEmoteId, ulong reactorUserId, ulong messageId);
         public void ClearReactions(ulong messageId);
+        public SingleEmoteStats GetSingleEmoteStats(ulong guildEmoteId, ulong guildId);
+    }
+
+    public struct SingleEmoteStats
+    {
+        public ulong EmoteId { get; set; }
+        public int RankWeek { get; set; }
+        public int LastWeekUsage { get; set; }
+        public int RankMonth { get; set; }
+        public int LastMonthUsage { get; set; }
+        public int RankTwoMonths { get; set; }
+        public int LastTwoMonthsUsage { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Week: {0} ({1})\nMonth: {2} ({3})\nTwo Months: {4} ({5})",
+                                 LastWeekUsage, RankWeek,
+                                 LastMonthUsage, RankMonth,
+                                 LastTwoMonthsUsage, RankTwoMonths);
+        }
     }
 }
