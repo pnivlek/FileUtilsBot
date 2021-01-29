@@ -24,7 +24,7 @@ namespace SmileBot.Core.Services.Impl
                 {
                     Cmd = commandKey,
                     Desc = commandKey,
-                    Usage = new [] { commandKey },
+                    Usage = new[] { commandKey },
                 };
 
             return toReturn;

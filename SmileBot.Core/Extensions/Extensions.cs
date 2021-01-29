@@ -2,14 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Discord;
 using Discord.Commands;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;
+using Newtonsoft.Json;
 using SmileBot.Core.Services;
 
 namespace SmileBot.Core.Extensions
 {
     public static class Extensions
+
     {
         private static Logger _log = LogManager.GetCurrentClassLogger();
 
@@ -79,5 +82,10 @@ namespace SmileBot.Core.Extensions
             }
             return module;
         }
+
+        public static string CodeRemarks(this CommandInfo cmd, string prefix) => string.Join(" or ", JsonConvert.DeserializeObject<string[]>(cmd.Remarks).Select(x => Format.Code(string.Format(x, prefix))));
+        public static string FormattedSummary(this CommandInfo cmd, string prefix) => string.Format(cmd.Summary, prefix);
+        public static EmbedBuilder WithOkColor(this EmbedBuilder eb) => eb.WithColor(SmileBot.OkColor);
+        public static EmbedBuilder WithErrorColor(this EmbedBuilder eb) => eb.WithColor(SmileBot.OkColor);
     }
 }

@@ -25,7 +25,7 @@ namespace SmileBot.Core.Services
 
         public void Setup()
         {
-            using(var context = new SmileContext(options))
+            using (var context = new SmileContext(options))
             {
                 if (context.Database.GetPendingMigrations().Any())
                 {

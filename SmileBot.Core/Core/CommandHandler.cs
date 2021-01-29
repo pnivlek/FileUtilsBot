@@ -77,21 +77,21 @@ namespace SmileBot.Core.Services
 
             if (messageContent.StartsWith(prefix, StringComparison.InvariantCulture) || isPrefixCommand)
             {
-                var(Success, Error, Info) = await ExecuteCommandAsync(new CommandContext(_client, usrMsg), messageContent, isPrefixCommand ? 1 : prefix.Length, _services).ConfigureAwait(false);
+                var (Success, Error, Info) = await ExecuteCommandAsync(new CommandContext(_client, usrMsg), messageContent, isPrefixCommand ? 1 : prefix.Length, _services).ConfigureAwait(false);
             }
         }
 
         public void AddServices(IServiceCollection s) { }
 
-        private Task < (bool Success, string Error, CommandInfo Info) > ExecuteCommandAsync(CommandContext context, string input, int argPos, IServiceProvider serviceProvider) => ExecuteCommand(context, input.Substring(argPos), serviceProvider);
+        private Task<(bool Success, string Error, CommandInfo Info)> ExecuteCommandAsync(CommandContext context, string input, int argPos, IServiceProvider serviceProvider) => ExecuteCommand(context, input.Substring(argPos), serviceProvider);
 
-        private async Task < (bool Success, string Error, CommandInfo Info) > ExecuteCommand(CommandContext context, string input, IServiceProvider services)
+        private async Task<(bool Success, string Error, CommandInfo Info)> ExecuteCommand(CommandContext context, string input, IServiceProvider services)
         {
-            var execResult = (ExecuteResult)await _commandService.ExecuteAsync(context, 1, services : services);
+            var execResult = (ExecuteResult)await _commandService.ExecuteAsync(context, 1, services: services);
             // note: unknown commands are not logged since the above statement moves out of the method.
             if (execResult.Exception != null && (!(execResult.Exception is HttpException he) || he.DiscordCode != 50013))
             {
-                lock(errorLogLock)
+                lock (errorLogLock)
                 {
                     var now = DateTime.Now;
                     File.AppendAllText($"./command_errors_{now:yyyy-MM-dd}.txt",

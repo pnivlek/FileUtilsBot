@@ -31,15 +31,15 @@ namespace SmileBot.Modules.Util
                 if (string.IsNullOrWhiteSpace(keyword) || string.IsNullOrWhiteSpace(quote))
                     return;
 
-                using(var uow = _db.GetDbContext())
+                using (var uow = _db.GetDbContext())
                 {
                     uow.Quotes.Add(new Quote
                     {
                         GuildId = ctx.Guild.Id,
-                            Keyword = keyword,
-                            AuthorId = ctx.Message.Author.Id,
-                            Author = ctx.Message.Author.Username,
-                            Text = quote
+                        Keyword = keyword,
+                        AuthorId = ctx.Message.Author.Id,
+                        Author = ctx.Message.Author.Username,
+                        Text = quote
                     });
                     uow.SaveChanges();
                 }
@@ -51,7 +51,7 @@ namespace SmileBot.Modules.Util
             [RequireContext(ContextType.Guild)]
             public async Task QuoteDelete(int id)
             {
-                using(var uow = _db.GetDbContext())
+                using (var uow = _db.GetDbContext())
                 {
                     Quote quote = uow.Quotes.GetById(id);
                     if (await SendQuote(ctx, quote))
@@ -69,7 +69,7 @@ namespace SmileBot.Modules.Util
             [RequireContext(ContextType.Guild)]
             public async Task QuoteGet(int id)
             {
-                using(var uow = _db.GetDbContext())
+                using (var uow = _db.GetDbContext())
                 {
                     Quote quote = uow.Quotes.GetById(id);
                     await SendQuote(ctx, quote);
@@ -81,7 +81,7 @@ namespace SmileBot.Modules.Util
             [Priority(0)]
             public async Task QuoteGetRandom()
             {
-                using(var uow = _db.GetDbContext())
+                using (var uow = _db.GetDbContext())
                 {
                     Quote quote = await uow.Quotes.GetRandomQuote(ctx.Guild.Id);
                     await SendQuote(ctx, quote);
@@ -93,7 +93,7 @@ namespace SmileBot.Modules.Util
             [Priority(1)]
             public async Task QuoteGetRandom(string keyword)
             {
-                using(var uow = _db.GetDbContext())
+                using (var uow = _db.GetDbContext())
                 {
                     Quote quote = await uow.Quotes.GetRandomQuoteByKeyword(ctx.Guild.Id, keyword);
                     await SendQuote(ctx, quote);

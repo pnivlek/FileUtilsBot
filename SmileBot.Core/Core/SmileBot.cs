@@ -30,6 +30,9 @@ namespace SmileBot
 
         private readonly DbService _db;
 
+        public static Color OkColor { get; set; }
+        public static Color ErrorColor { get; set; }
+
         public IServiceProvider Services { get; private set; }
 
         public event Func<GuildConfig, Task> JoinedGuild = delegate { return Task.CompletedTask; };
@@ -50,6 +53,9 @@ namespace SmileBot
             _db = new DbService(Credentials);
             _db.Setup();
 
+            // TODO put this in a bot config db table.
+            OkColor = new Color(Convert.ToUInt32("71CD40", 16));
+            ErrorColor = new Color(Convert.ToUInt32("EE281F", 16));
             Client.Log += Client_Log;
         }
 
@@ -107,11 +113,51 @@ namespace SmileBot
                 Services = s.BuildServiceProvider();
                 var commandHandler = Services.GetService<CommandHandler>();
                 commandHandler.AddServices(s);
+                LoadTypeReaders(typeof(SmileBot).Assembly);
 
                 sw.Stop();
                 _log.Info($"All services loaded in {sw.Elapsed.TotalSeconds:F2}s");
             }
         }
+
+        private IEnumerable<object> LoadTypeReaders(Assembly assembly)
+        {
+            Type[] allTypes;
+            try
+            {
+                allTypes = assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                _log.Warn(ex.LoaderExceptions[0]);
+                return Enumerable.Empty<object>();
+            }
+            var filteredTypes = allTypes
+                .Where(x => x.IsSubclassOf(typeof(TypeReader))
+                    && x.BaseType.GetGenericArguments().Length > 0
+                    && !x.IsAbstract);
+
+            var toReturn = new List<object>();
+            foreach (var ft in filteredTypes)
+            {
+                var x = (TypeReader)Activator.CreateInstance(ft, Client, CommandService);
+                var baseType = ft.BaseType;
+                var typeArgs = baseType.GetGenericArguments();
+                try
+                {
+                    CommandService.AddTypeReader(typeArgs[0], x);
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex);
+                    throw;
+                }
+                toReturn.Add(x);
+            }
+
+            return toReturn;
+        }
+
 
         private async Task LoginAsync(string token)
         {

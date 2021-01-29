@@ -1,4 +1,14 @@
 ﻿{
+  "h": {
+    "Cmd": "help h",
+    "Desc": "Fetches information about a command or module.",
+    "Usage": ["{0}h help", "{0}h commands"]
+  },
+  "modules": {
+    "Cmd": "modules mods",
+    "Desc": "Gets the list of modules.",
+    "Usage": ["{0}mods"]
+  },
   "commands": {
     "Cmd": "commands cmds",
     "Desc": "Gets the list of commands for a module.",
@@ -7,32 +17,32 @@
   "eightball": {
     "Cmd": "8ball 8b",
     "Desc": "Ask a question to the famous eight ball.",
-    "Usage": ["{0}8b Do you like Ping Pong the Animation?"]
+    "Usage": ["{0}8b Can you hear that?"]
   },
   "onesecond": {
     "Cmd": "onesec onesecond 1s",
-    "Desc": "One second has passed",
+    "Desc": "One second has passed.",
     "Usage": ["{0}1s", "{0}onesec", "{0}onesecond"]
   },
   "quoteadd": {
-    "Cmd": "qa quoteadd",
-    "Desc": "Adds a quote to the quotes.",
+    "Cmd": "quoteadd qa",
+    "Desc": "Adds a quote to the quotes. The first argument is the keyword, the rest is the quote.",
     "Usage": [
       "{0}qa \"motivation\" \"Smile: The Hero Comes. The Hero Comes. The Hero Comes.\""
     ]
   },
   "quotedelete": {
-    "Cmd": "qd quotedel",
+    "Cmd": "quotedel qd",
     "Desc": "Deletes a quote from the database by id.",
     "Usage": ["{0}qd 1"]
   },
   "quoteget": {
-    "Cmd": "qg quoteget",
+    "Cmd": "quoteget qg",
     "Desc": "Gets a quote from the database by id.",
     "Usage": ["{0}qg 1"]
   },
   "quotegetrandom": {
-    "Cmd": "q quote",
+    "Cmd": "quote q",
     "Desc": "Gets a random quote from the database.",
     "Usage": ["{0}q", "{0}q keyword"]
   },
