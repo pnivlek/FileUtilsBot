@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SmileBot.Core\SmileBot.Core.csproj" />
+    <ProjectReference Include="..\SmileBot.Core\SmileBot.Core.csproj" />
   </ItemGroup>
 
 </Project>

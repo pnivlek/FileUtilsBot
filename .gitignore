@@ -1,4 +1,4 @@
-src/SmileBot/Config/credentials.json
+SmileBot/Config/credentials.json
 *.db
 .vscode/
 
