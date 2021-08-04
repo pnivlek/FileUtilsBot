@@ -3,8 +3,8 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using SmileBot.Common.Attributes;
-using SmileBot.Core.Extensions;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Extensions;
+using SmileBot.Discord.Services;
 
 namespace SmileBot.Modules.Util
 {

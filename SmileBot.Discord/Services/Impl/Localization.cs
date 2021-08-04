@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using SmileBot.Common;
 
-namespace SmileBot.Core.Services.Impl
+namespace SmileBot.Discord.Services.Impl
 {
     public class Localization : ILocalization
     {

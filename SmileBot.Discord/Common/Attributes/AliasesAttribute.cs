@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Discord.Commands;
-using SmileBot.Core.Services.Impl;
+using SmileBot.Discord.Services.Impl;
 
 namespace SmileBot.Common.Attributes
 {

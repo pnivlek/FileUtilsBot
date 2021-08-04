@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Discord;
 
-namespace SmileBot.Core.Extensions
+namespace SmileBot.Discord.Extensions
 {
     public static class MessageExtensions
     {

@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using SmileBot.Core.Database.Repositories;
-using SmileBot.Core.Database.Repositories.Impl;
+using SmileBot.Discord.Database.Repositories;
+using SmileBot.Discord.Database.Repositories.Impl;
 
-namespace SmileBot.Core.Database
+namespace SmileBot.Discord.Database
 {
     public class UnitOfWork : IUnitOfWork
     {

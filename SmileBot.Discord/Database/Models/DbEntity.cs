@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SmileBot.Core.Database.Models
+namespace SmileBot.Discord.Database.Models
 {
     public class DbEntity
     {

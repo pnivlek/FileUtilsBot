@@ -1,7 +1,7 @@
 using Discord.Addons.Interactive;
 using Discord.Commands;
 using NLog;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Services;
 
 namespace SmileBot.Modules
 {

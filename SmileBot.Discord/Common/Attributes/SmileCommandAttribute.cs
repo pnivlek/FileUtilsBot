@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Discord.Commands;
-using SmileBot.Core.Services.Impl;
+using SmileBot.Discord.Services.Impl;
 
 namespace SmileBot.Common.Attributes
 {

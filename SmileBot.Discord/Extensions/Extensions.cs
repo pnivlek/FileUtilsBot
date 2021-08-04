@@ -7,9 +7,9 @@ using Discord.Commands;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;
 using Newtonsoft.Json;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Services;
 
-namespace SmileBot.Core.Extensions
+namespace SmileBot.Discord.Extensions
 {
     public static class Extensions
 

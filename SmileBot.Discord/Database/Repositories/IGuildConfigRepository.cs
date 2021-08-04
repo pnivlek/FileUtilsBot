@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using SmileBot.Core.Database.Models;
+using SmileBot.Discord.Database.Models;
 
-namespace SmileBot.Core.Database.Repositories
+namespace SmileBot.Discord.Database.Repositories
 {
     public interface IGuildConfigRepository : IRepository<GuildConfig>
     {

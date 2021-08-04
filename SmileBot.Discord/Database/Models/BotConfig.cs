@@ -1,4 +1,4 @@
-namespace SmileBot.Core.Database.Models
+namespace SmileBot.Discord.Database.Models
 {
     public class BotConfig : DbEntity { }
 }

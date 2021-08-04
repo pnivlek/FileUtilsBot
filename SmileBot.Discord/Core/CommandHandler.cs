@@ -9,7 +9,7 @@ using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;
 
-namespace SmileBot.Core.Services
+namespace SmileBot.Discord.Services
 {
     public class CommandHandler : ISmileService
     {

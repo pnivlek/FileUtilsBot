@@ -1,9 +1,9 @@
 using System.Linq;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using SmileBot.Core.Database;
+using SmileBot.Discord.Database;
 
-namespace SmileBot.Core.Services
+namespace SmileBot.Discord.Services
 {
     public class DbService
     {

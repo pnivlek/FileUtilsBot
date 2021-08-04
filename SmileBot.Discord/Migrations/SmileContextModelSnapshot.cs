@@ -3,9 +3,9 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SmileBot.Core.Database;
+using SmileBot.Discord.Database;
 
-namespace SmileBot.Core.Migrations
+namespace SmileBot.Discord.Migrations
 {
     [DbContext(typeof(SmileContext))]
     partial class SmileContextModelSnapshot : ModelSnapshot
@@ -16,7 +16,7 @@ namespace SmileBot.Core.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.8");
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.BotConfig", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.BotConfig", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,7 +30,7 @@ namespace SmileBot.Core.Migrations
                     b.ToTable("BotConfig");
                 });
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.GuildConfig", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.GuildConfig", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -56,7 +56,7 @@ namespace SmileBot.Core.Migrations
                     b.ToTable("Guilds");
                 });
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.Quote", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.Quote", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,7 +85,7 @@ namespace SmileBot.Core.Migrations
                     b.ToTable("Quotes");
                 });
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.ReactionEvent", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.ReactionEvent", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -120,7 +120,7 @@ namespace SmileBot.Core.Migrations
                     b.ToTable("ReactionEvents");
                 });
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.ReactionTrackSettings", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.ReactionTrackSettings", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -146,7 +146,7 @@ namespace SmileBot.Core.Migrations
                     b.ToTable("ReactionTrackSettings");
                 });
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.User", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -172,11 +172,11 @@ namespace SmileBot.Core.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("SmileBot.Core.Database.Models.ReactionTrackSettings", b =>
+            modelBuilder.Entity("SmileBot.Discord.Database.Models.ReactionTrackSettings", b =>
                 {
-                    b.HasOne("SmileBot.Core.Database.Models.GuildConfig", "GuildConfig")
+                    b.HasOne("SmileBot.Discord.Database.Models.GuildConfig", "GuildConfig")
                         .WithOne("ReactionTrackSettings")
-                        .HasForeignKey("SmileBot.Core.Database.Models.ReactionTrackSettings", "GuildConfigId")
+                        .HasForeignKey("SmileBot.Discord.Database.Models.ReactionTrackSettings", "GuildConfigId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

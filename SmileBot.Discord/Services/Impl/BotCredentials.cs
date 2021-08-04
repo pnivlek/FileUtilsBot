@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.Extensions.Configuration;
 using NLog;
 
-namespace SmileBot.Core.Services.Impl
+namespace SmileBot.Discord.Services.Impl
 {
     public class BotCredentials : IBotCredentials
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SmileBot.Core.Migrations
+namespace SmileBot.Discord.Migrations
 {
     public partial class ReactionEventTypeRemoval : Migration
     {

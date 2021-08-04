@@ -4,7 +4,7 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Services;
 
 namespace SmileBot.Common.TypeReaders
 {

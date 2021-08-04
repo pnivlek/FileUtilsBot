@@ -3,8 +3,8 @@ using Discord;
 using Discord.Commands;
 using Newtonsoft.Json;
 using System.Linq;
-using SmileBot.Core.Services;
-using SmileBot.Core.Extensions;
+using SmileBot.Discord.Services;
+using SmileBot.Discord.Extensions;
 
 namespace SmileBot.Modules.Help.Services
 {

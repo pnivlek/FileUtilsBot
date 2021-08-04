@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using SmileBot.Core.Database.Models;
+using SmileBot.Discord.Database.Models;
 
-namespace SmileBot.Core.Database.Repositories.Impl
+namespace SmileBot.Discord.Database.Repositories.Impl
 {
     public abstract class Repository<T> : IRepository<T> where T : DbEntity
     {

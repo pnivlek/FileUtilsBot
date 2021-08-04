@@ -11,10 +11,10 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;
-using SmileBot.Core.Database.Models;
-using SmileBot.Core.Extensions;
-using SmileBot.Core.Services;
-using SmileBot.Core.Services.Impl;
+using SmileBot.Discord.Database.Models;
+using SmileBot.Discord.Extensions;
+using SmileBot.Discord.Services;
+using SmileBot.Discord.Services.Impl;
 
 namespace SmileBot
 {

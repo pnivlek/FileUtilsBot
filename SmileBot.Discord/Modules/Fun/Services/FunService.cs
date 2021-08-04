@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 using NLog;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Services;
 
 namespace SmileBot.Modules.Fun.Services
 {

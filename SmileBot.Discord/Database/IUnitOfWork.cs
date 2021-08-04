@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
-using SmileBot.Core.Database.Repositories;
-namespace SmileBot.Core.Database
+using SmileBot.Discord.Database.Repositories;
+namespace SmileBot.Discord.Database
 {
     public interface IUnitOfWork : IDisposable
     {

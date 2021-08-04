@@ -7,9 +7,9 @@ using Discord;
 using Discord.WebSocket;
 using Microsoft.EntityFrameworkCore;
 using NLog;
-using SmileBot.Core.Database.Models;
-using SmileBot.Core.Database.Repositories;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Database.Models;
+using SmileBot.Discord.Database.Repositories;
+using SmileBot.Discord.Services;
 
 namespace SmileBot.Modules.ReactionTrack.Services
 {

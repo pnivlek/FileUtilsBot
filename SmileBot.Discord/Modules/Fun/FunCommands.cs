@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using SmileBot.Common.Attributes;
-using SmileBot.Core.Extensions;
+using SmileBot.Discord.Extensions;
 using SmileBot.Modules.Fun.Services;
 
 namespace SmileBot.Modules.Fun

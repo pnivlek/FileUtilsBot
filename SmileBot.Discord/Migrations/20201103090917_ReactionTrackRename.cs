@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SmileBot.Core.Migrations
+namespace SmileBot.Discord.Migrations
 {
     public partial class ReactionTrackRename : Migration
     {

@@ -5,8 +5,8 @@ using Discord.Commands;
 using Discord.WebSocket;
 using Newtonsoft.Json;
 using SmileBot.Common.Attributes;
-using SmileBot.Core.Extensions;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Extensions;
+using SmileBot.Discord.Services;
 using SmileBot.Modules.Help.Services;
 
 namespace SmileBot.Modules.Help

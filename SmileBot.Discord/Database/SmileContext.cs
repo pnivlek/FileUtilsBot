@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using SmileBot.Core.Database.Models;
-using SmileBot.Core.Services;
-using SmileBot.Core.Services.Impl;
+using SmileBot.Discord.Database.Models;
+using SmileBot.Discord.Services;
+using SmileBot.Discord.Services.Impl;
 
-namespace SmileBot.Core.Database
+namespace SmileBot.Discord.Database
 {
     public class SmileContextFactory : IDesignTimeDbContextFactory<SmileContext>
     {

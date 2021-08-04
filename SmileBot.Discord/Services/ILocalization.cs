@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SmileBot.Core.Services
+namespace SmileBot.Discord.Services
 {
     public interface ILocalization : ISmileService { }
 }

@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using SmileBot.Core.Database.Models;
+using SmileBot.Discord.Database.Models;
 
-namespace SmileBot.Core.Database.Repositories.Impl
+namespace SmileBot.Discord.Database.Repositories.Impl
 {
     public class QuoteRepository : Repository<Quote>, IQuoteRepository
     {

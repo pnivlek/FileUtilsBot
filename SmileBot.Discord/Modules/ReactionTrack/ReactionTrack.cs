@@ -3,7 +3,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using SmileBot.Common.Attributes;
-using SmileBot.Core.Services;
+using SmileBot.Discord.Services;
 using SmileBot.Modules.ReactionTrack.Services;
 
 namespace SmileBot.Modules.ReactionTrack
