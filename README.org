@@ -1,0 +1,51 @@
+#+TITLE: README
+
+* Namespaces/Outline
+** SmileBot.Database
+Possibly useless if Services are stateless.
+*** SmileBot.Database.Repository
+*** SmileBot.Database.Models
+** SmileBot.Services
+The backend. Contains services that run each command.
+Example: box office mojo scraping.
+*** SmileBot.Services.BoxOfficeMojo
+*** SmileBot.Services.Deadline
+** SmileBot.Extensions
+Possible extension methods for services.
+** SmileBot.Discord
+*** Classes
+- CommandHandler
+  Set up command parsing.
+- LogSetup
+  Set up logs using SeriLog
+- SmileBot
+  de facto entry point to the program.
+- Program
+  Main method.
+*** SmileBot.Discord.Extensions
+Extensions to the discord.net library, such as an Ok/Error embed method.
+*** SmileBot.Discord.Modules
+Command modules for each set of command. Call services in SmileBot.Services
+**** Classes
+- SmileModule.cs
+**** SmileBot.Discord.Modules.Services
+Discord specific services, like for administration.
+*** SmileBot.Discord.Database
+- Class: UnitOfWork.cs
+**** SmileBot.Discord.Database.Repositories
+GuildConfigRepository
+**** SmileBot.Discord.Database.Models
+GuildConfig
+*** SmileBot.Discord.Common
+**** SmileBot.Discord.Common.TypeReaders
+**** SmileBot.Discord.Common.Attributes
+**** Classes
+ - SmileCommand
+** SmileBot.Irc
+Possible implementation of the bot for IRC.
+* Features
+- box office mojo scraping
+- anthony posting
+- Discord: keep message at bottom of channel
+- Discord: track reaction usage
+- Discord: quotes
