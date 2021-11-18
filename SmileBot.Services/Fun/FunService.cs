@@ -5,7 +5,7 @@ using System.Text;
 using NLog;
 using SmileBot.Discord.Services;
 
-namespace SmileBot.Modules.Fun.Services
+namespace SmileBot.Services.Fun
 {
     public class FunService : ISmileService
     {

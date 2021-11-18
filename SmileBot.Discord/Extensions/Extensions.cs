@@ -31,11 +31,11 @@ namespace SmileBot.Discord.Extensions
                 _log.Warn(ex);
                 return Enumerable.Empty<Type>();
             }
-            // all types which have ISmileService implementation are services
+            // all types which have IDiscordSmileService implementation are services
             // which are supposed to be loaded with this method
             // ignore all interfaces and abstract classes
             var services = new Queue<Type>(allTypes
-                .Where(x => x.GetInterfaces().Contains(typeof(ISmileService)) &&
+                .Where(x => x.GetInterfaces().Contains(typeof(IDiscordSmileService)) &&
                     !x.GetTypeInfo().IsInterface && !x.GetTypeInfo().IsAbstract
                 )
                 .ToArray());
@@ -43,11 +43,11 @@ namespace SmileBot.Discord.Extensions
             // we will just return those types when we're done instantiating them
             addedTypes.AddRange(services);
 
-            // get all interfaces which inherit from ISmileService
+            // get all interfaces which inherit from IDiscordSmileService
             // as we need to also add a service for each one of interfaces
             // so that DI works for them too
             var interfaces = new HashSet<Type>(allTypes
-                .Where(x => x.GetInterfaces().Contains(typeof(ISmileService)) &&
+                .Where(x => x.GetInterfaces().Contains(typeof(IDiscordSmileService)) &&
                     x.GetTypeInfo().IsInterface));
 
             // keep instantiating until we've instantiated them all

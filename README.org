@@ -10,6 +10,8 @@ The backend. Contains services that run each command.
 Example: box office mojo scraping.
 *** SmileBot.Services.BoxOfficeMojo
 *** SmileBot.Services.Deadline
+*** Interface
+- SmileBot.Services.ISmileService: base interface all services implement for loading.
 ** SmileBot.Extensions
 Possible extension methods for services.
 ** SmileBot.Discord
@@ -41,6 +43,10 @@ GuildConfig
 **** SmileBot.Discord.Common.Attributes
 **** Classes
  - SmileCommand
+*** SmileBot.Discord.Services
+**** Classes
+- Credentials
+- ISmileDiscordService - base interface for discord services to implement for loading.
 ** SmileBot.Irc
 Possible implementation of the bot for IRC.
 * Features
